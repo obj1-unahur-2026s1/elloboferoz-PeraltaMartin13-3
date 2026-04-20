@@ -1,0 +1,49 @@
+import cazador.*
+import feroz.*
+import caperucita.*
+import abuelita.*
+import objetos.*
+
+describe "historia de EL Lobo Feroz" {
+  test "El lobo feroz corre hacia el bosque donde se encuentra con caperucita" {
+    feroz.correr()
+    assert.equals(9, feroz.pesoActual())
+  }
+
+  test "el lobo luego corre a la casa de la abuelita, donde se la come y se disfraza de ella" {
+    feroz.correr()
+    feroz.comer(abuelita.pesoActual())
+    assert.equals(14, feroz.pesoActual())
+  }
+
+  test "mientras caperucita cruza el bosque para volver a la casa de su abuelita se le cae una manzana"{
+    canasta.perderManzanas(1)
+    assert.equals(5, canasta.cantidadTotalManzanas())
+  }
+
+  test "Cuando llega a Caperucita a la casa, el lobo molesto por las preguntas incisivas sobre su aspecto físico, se come a Caperucita con canasta llena y todo." {
+    feroz.comer(caperucita.pesoActual())
+    feroz.comer(canasta.pesoTotalCanasta())
+    assert.equals(16.12, feroz.pesoActual())
+  }
+
+    test "final 1, llega el cazador a la casa y el lobo tambien se lo come"{
+        feroz.comer(cazador.pesoActual())
+        assert.equals(18, feroz.pesoActual())
+    }
+
+    test "final 2,  el cazador se acerca a la casa y el lobo al verle le proboca una crisis a este y sale corriendo"{
+        feroz.sufrirCrisis()
+        feroz.correr()
+        assert.equals(9, feroz.pesoActual())
+    }
+
+    test "final 3, el cazador llega a la casa de la abuelita y le dispara 3 veces al lobo fallando todos sus disparos"{
+        rifle.disparar()
+        rifle.disparar()
+        rifle.disparar()
+        assert.equals(2, rifle.municionActual())
+        feroz.esSaludable()
+
+    }
+}
